@@ -34,9 +34,21 @@ class TicTacToe {
 	 * Metodo que busca ganar en el mismo turno (unicamente por la maquina).
 	 * 
 	 * @param int $jugador puede ser 1 o 2
-	 * @return $board
+	 * @return $result[] array de 3 espacios, el primero verdadero
+	 * 			si puede marcar y ganar la segunda la fila y la tercera la columna.
 	 **/	
 	public function searchWin($jugador) {
+		//Primero verificar diagonales
+		for ($i = 0; $i < 3; $i++) { 
+			for ($j = 0; $j < 3; $j++) { 
+			
+			}
+		}
+
+		//Luego verificar filas.
+		
+
+		//Por ultimo verificar columna.
 	}
 
 	/**
@@ -61,7 +73,21 @@ class TicTacToe {
 	 * Se encarga de la logica de la maquina
 	 * 
 	 **/	
-	public function playComputer() {
+	public function playComputer($jugador) {
+		$resultsWin = $this.searchWin($jugador);
+		if ($resultsWin[0] == 1) {
+			$this.tick($resultsWin[1], $resultsWin[2], $jugador);
+		}else{
+			$resultsBlock = $this.searchBlock($jugador);
+			if ($resultsBlock[0] == 1) {
+				$this.tick($resultsBlock[1], $resultsBlock[2], $jugador);
+			}else{
+				$resultsTick = $this.searchTick($jugador);
+				if ($resultsTick[0] == 1) {
+					$this.tick($resultsTick[1], $resultsTick[2], $jugador);
+				}
+			}
+		}
 	}
 	
 	/**
