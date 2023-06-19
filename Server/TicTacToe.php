@@ -39,10 +39,22 @@ class TicTacToe {
 	 **/	
 	public function searchWin($jugador) {
 		//Primero verificar diagonales
-		for ($i = 0; $i < 3; $i++) { 
-			for ($j = 0; $j < 3; $j++) { 
-			
+		$contadorDiagonal = 0;
+		$noHayDiagonal = 0;
+		for ($i = 0; $i < 3; $i++) {
+			if ($board[i][i] != $jugador && $board[i][i] != 0) {
+				$noHayDiagonal = 1;
+				break;
+			}else{
+				if ($board[i][i] == 0 ) {
+					$contadorDiagonal++;
+				}
+
 			}
+		}
+
+		if (($board[0][0] == 0 || $board[1][1] == $jugador)  ($board[2][2] == $jugador)) {
+
 		}
 
 		//Luego verificar filas.
@@ -68,7 +80,7 @@ class TicTacToe {
 	 **/
 	public function searchTick($jugador) {
 	}
-	
+
 	/**
 	 * Se encarga de la logica de la maquina
 	 * 
