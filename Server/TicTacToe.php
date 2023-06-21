@@ -1,7 +1,7 @@
 <?php
 
 class TicTacToe {
-	private $board = [
+	public $board = [
 		[0, 0, 0],
 		[0, 0, 0],
 		[0, 0, 0]
@@ -27,7 +27,7 @@ class TicTacToe {
 	 **/
 	public function tick($fila, $columna, $jugador) {
 		$this->board[$fila][$columna] = $jugador;
-		return $this->board;
+		//return $this->board;
 	}
 
 	/**
@@ -106,8 +106,8 @@ class TicTacToe {
 		}
 
 		//Randomizar luego
-		for ($i=0; $i < 2; $i++) { 
-			for ($j=0; $j < 2; $j++) { 
+		for ($i=0; $i < 3; $i++) { 
+			for ($j=0; $j < 3; $j++) { 
 				if ($this->board[$i][$j] == 0) {
 					return strval($i) . strval($j);
 				}
@@ -127,7 +127,7 @@ class TicTacToe {
 			$resultsTick = $this->searchTick($jugador);
 			$this->tick(intval(substr($resultsTick, 0, 1)), intval(substr($resultsTick, 1, 1)), $jugador);
 
-			
+
 			/*
 			//Descomentar cuando este searchBlock
 			$resultsBlock = $this->searchBlock($jugador);
@@ -151,6 +151,16 @@ class TicTacToe {
 	 * 
 	 **/
 	public function play() {
+	}
+
+	//Metodo de pruebas
+	public function PrintBoard() {
+		for ($i=0; $i < 3; $i++) { 
+			for ($j=0; $j < 3; $j++) { 
+				echo strval($this->board[$i][$j]);
+			}
+			echo "<br />";
+		}
 	}
 }
 
