@@ -26,8 +26,8 @@ class TicTacToe {
 	 * @return $board
 	 **/
 	public function tick($fila, $columna, $jugador) {
-		$this->$board[$fila][$columna] = $jugador
-		return $this->$board;
+		$this->board[$fila][$columna] = $jugador;
+		return $this->board;
 	}
 
 	/**
@@ -40,27 +40,31 @@ class TicTacToe {
 	public function searchWin($jugador) {
 		//Primero verificar diagonales
 		$contadorDiagonal = 0;
-		$noHayDiagonal = 0;
+		$disponible = "";
+
 		for ($i = 0; $i < 3; $i++) {
-			if ($board[i][i] != $jugador && $board[i][i] != 0) {
-				$noHayDiagonal = 1;
+			if ($this->board[$i][$i] != $jugador && $this->board[$i][$i] != 0) {
+				$contadorDiagonal = 0;
 				break;
 			}else{
-				if ($board[i][i] == 0 ) {
+				if ($this->board[$i][$i] == $jugador) {
 					$contadorDiagonal++;
+				}else{
+					$disponible = strval($i) . strval($i); //verificar actualizacion
 				}
 
 			}
 		}
-
-		if (($board[0][0] == 0 || $board[1][1] == $jugador)  ($board[2][2] == $jugador)) {
-
+		if ($contadorDiagonal == 2) {
+			return $disponible;
 		}
-
 		//Luego verificar filas.
 		
-
+		
 		//Por ultimo verificar columna.
+		
+		//No hay win
+		return "F";
 	}
 
 	/**
@@ -70,6 +74,9 @@ class TicTacToe {
 	 * @return $board
 	 **/	
 	public function searchBlock($jugador) {
+
+
+		return "F";
 	}
 
 	/**
@@ -79,6 +86,33 @@ class TicTacToe {
 	 * @return $board
 	 **/
 	public function searchTick($jugador) {
+		//Centro
+		if ($this->board[1][1] == 0) {
+			return "11";
+		}
+
+		//Esquina Randomizar seleccion de esquna
+		if ($this->board[0][0] == 0) {
+			return "00";
+		}
+		if ($this->board[0][2] == 0) {
+			return "02";
+		}
+		if ($this->board[2][0] == 0) {
+			return "20";
+		}
+		if ($this->board[2][2] == 0) {
+			return "22";
+		}
+
+		//Randomizar luego
+		for ($i=0; $i < 2; $i++) { 
+			for ($j=0; $j < 2; $j++) { 
+				if ($this->board[$i][$j] == 0) {
+					return strval($i) . strval($j);
+				}
+			}
+		}
 	}
 
 	/**
@@ -86,20 +120,30 @@ class TicTacToe {
 	 * 
 	 **/	
 	public function playComputer($jugador) {
-		$resultsWin = $this.searchWin($jugador);
-		if ($resultsWin[0] == 1) {
-			$this.tick($resultsWin[1], $resultsWin[2], $jugador);
+		$resultsWin = $this->searchWin($jugador);
+		if ($resultsWin != "F") {
+			$this->tick(intval(substr($resultsWin, 0, 1)), intval(substr($resultsWin, 1, 1)), $jugador);
 		}else{
-			$resultsBlock = $this.searchBlock($jugador);
+			$resultsTick = $this->searchTick($jugador);
+			$this->tick(intval(substr($resultsTick, 0, 1)), intval(substr($resultsTick, 1, 1)), $jugador);
+
+			
+			/*
+			//Descomentar cuando este searchBlock
+			$resultsBlock = $this->searchBlock($jugador);
 			if ($resultsBlock[0] == 1) {
-				$this.tick($resultsBlock[1], $resultsBlock[2], $jugador);
+				$this->tick($resultsBlock[1], $resultsBlock[2], $jugador);
 			}else{
-				$resultsTick = $this.searchTick($jugador);
+				$resultsTick = $this->searchTick($jugador);
 				if ($resultsTick[0] == 1) {
-					$this.tick($resultsTick[1], $resultsTick[2], $jugador);
+					$this->tick($resultsTick[1], $resultsTick[2], $jugador);
 				}
 			}
+			*/
 		}
+
+
+
 	}
 	
 	/**
