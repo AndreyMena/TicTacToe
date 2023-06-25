@@ -11,5 +11,7 @@
             "email": "andrey.menaespinoza@ucr.ac.cr"
         }
     ],
-    "require": {}
+    "require": {
+        "phpxmlrpc/phpxmlrpc": "4.9"
+    }
 }

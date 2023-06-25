@@ -7,4 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Vendor\\Tictactoe\\' => array($baseDir . '/src'),
+    'PhpXmlRpc\\' => array($vendorDir . '/phpxmlrpc/phpxmlrpc/src'),
 );

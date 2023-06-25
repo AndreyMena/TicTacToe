@@ -11,12 +11,20 @@ class ComposerStaticInitc1b5d7a55d12d49e1ccd07e9797b3d15
         array (
             'Vendor\\Tictactoe\\' => 17,
         ),
+        'P' => 
+        array (
+            'PhpXmlRpc\\' => 10,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
         'Vendor\\Tictactoe\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
+        ),
+        'PhpXmlRpc\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpxmlrpc/phpxmlrpc/src',
         ),
     );
 
