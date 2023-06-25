@@ -12,6 +12,7 @@
         }
     ],
     "require": {
-        "phpxmlrpc/phpxmlrpc": "4.9"
+        "phpxmlrpc/phpxmlrpc": "4.9",
+        "laminas/laminas-xmlrpc": "^2.16"
     }
 }

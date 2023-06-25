@@ -1,4 +1,11 @@
 <?php
+    /*
+	require __DIR__ . "/vendor/autoload.php"; // Biblioteca cargada mediante composer
+
+    use PhpXmlRpc\Server;
+    use PhpXmlRpc\Response;
+    use PhpXmlRpc\Value;
+*/
 
 class TicTacToe {
 	public $board = [
@@ -164,4 +171,10 @@ class TicTacToe {
 	}
 }
 
+/*
+$server = new Laminas\XmlRpc\Server();
+//$server->setClass('My\Service\Class');
+$server->setClass('TicTacToe');
+
+echo $server->handle();*/
 ?>
