@@ -1,5 +1,0 @@
-{
-    "require": {
-        "laminas/laminas-xmlrpc": "^2.16"
-    }
-}

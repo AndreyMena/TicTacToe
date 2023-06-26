@@ -1,0 +1,19 @@
+{
+    "name": "vendor/tictactoe",
+    "description": "Juego de TicTacToe",
+    "autoload": {
+        "psr-4": {
+            "Vendor\\Tictactoe\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Andrey Mena Espinoza",
+            "email": "andrey.menaespinoza@ucr.ac.cr"
+        }
+    ],
+    "require": {
+        "phpxmlrpc/phpxmlrpc": "4.9",
+        "laminas/laminas-xmlrpc": "^2.16"
+    }
+}

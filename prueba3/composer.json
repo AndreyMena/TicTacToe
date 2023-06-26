@@ -1,0 +1,15 @@
+{
+    "name": "vendor/tictactoe",
+    "autoload": {
+        "psr-4": {
+            "Vendor\\Tictactoe\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Andrey Mena Espinoza",
+            "email": "andrey.menaespinoza@ucr.ac.cr"
+        }
+    ],
+    "require": {}
+}
