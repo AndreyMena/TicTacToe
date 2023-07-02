@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions
+	xmlns="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:tns="urn:DW_TicTacToe"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/"
+	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" name="DW_TicTacToe" targetNamespace="urn:DW_TicTacToe">
+	<types>
+		<xsd:schema targetNamespace="urn:DW_TicTacToe">
+			<xsd:element name="tick">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="fila" type="xsd:int"/>
+						<xsd:element name="columna" type="xsd:int"/>
+						<xsd:element name="jugador" type="xsd:int"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="searchWin">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="jugador" type="xsd:int"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="searchWinResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="searchWinResult" type="xsd:string"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="searchBlock">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="jugador" type="xsd:int"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="searchBlockResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="searchBlockResult" type="xsd:string"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="searchTick">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="jugador" type="xsd:int"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="searchTickResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="searchTickResult" type="xsd:string"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="playComputer">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="jugador" type="xsd:int"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="getBoardStr">
+				<xsd:complexType/>
+			</xsd:element>
+			<xsd:element name="getBoardStrResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="getBoardStrResult" type="xsd:string"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="prueba">
+				<xsd:complexType/>
+			</xsd:element>
+			<xsd:element name="pruebaResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="pruebaResult" type="xsd:string"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="checkWin">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="jugador" type="xsd:int"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="checkWinResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="checkWinResult" type="xsd:boolean"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="isFull">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="jugador" type="xsd:int"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="isFullResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="isFullResult" type="xsd:boolean"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="playComputerRand">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="jugador" type="xsd:int"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:schema>
+	</types>
+	<portType name="DW_TicTacToePort">
+		<operation name="tick">
+			<documentation>Este metodo marca el tablero  de acuerdo al jugador (no se encarga de buscar cual marcar)</documentation>
+			<input message="tns:tickIn"/>
+		</operation>
+		<operation name="searchWin">
+			<documentation>Metodo que busca ganar en el mismo turno (unicamente por la maquina).</documentation>
+			<input message="tns:searchWinIn"/>
+			<output message="tns:searchWinOut"/>
+		</operation>
+		<operation name="searchBlock">
+			<documentation>Metodo que busca ganar en el turno (unicamente por la maquina).</documentation>
+			<input message="tns:searchBlockIn"/>
+			<output message="tns:searchBlockOut"/>
+		</operation>
+		<operation name="searchTick">
+			<documentation>Metodo que busca la mejor posicion para marcar  en el turno (unicamente por la maquina).</documentation>
+			<input message="tns:searchTickIn"/>
+			<output message="tns:searchTickOut"/>
+		</operation>
+		<operation name="playComputer">
+			<documentation>Metodo que busca la mejor posicion para marcar  en el turno (unicamente por la maquina).</documentation>
+			<input message="tns:playComputerIn"/>
+		</operation>
+		<operation name="getBoardStr">
+			<documentation>Metodo que busca la mejor posicion para marcar  en el turno (unicamente por la maquina).</documentation>
+			<input message="tns:getBoardStrIn"/>
+			<output message="tns:getBoardStrOut"/>
+		</operation>
+		<operation name="prueba">
+			<documentation>Metodo que busca la mejor posicion para marcar  en el turno (unicamente por la maquina).</documentation>
+			<input message="tns:pruebaIn"/>
+			<output message="tns:pruebaOut"/>
+		</operation>
+		<operation name="checkWin">
+			<documentation>Verdadero si el jugador gano, falso si aun no ha ganado.</documentation>
+			<input message="tns:checkWinIn"/>
+			<output message="tns:checkWinOut"/>
+		</operation>
+		<operation name="isFull">
+			<documentation>Verdadero si esta lleno, falso si hay espacios.</documentation>
+			<input message="tns:isFullIn"/>
+			<output message="tns:isFullOut"/>
+		</operation>
+		<operation name="playComputerRand">
+			<documentation>Metodo que busca la mejor posicion para marcar  en el turno (unicamente por la maquina).</documentation>
+			<input message="tns:playComputerRandIn"/>
+		</operation>
+	</portType>
+	<binding name="DW_TicTacToeBinding" type="tns:DW_TicTacToePort">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="tick">
+			<soap:operation soapAction="urn:DW_TicTacToe#tick"/>
+			<input>
+				<soap:body use="literal" namespace="urn:DW_TicTacToe"/>
+			</input>
+		</operation>
+		<operation name="searchWin">
+			<soap:operation soapAction="urn:DW_TicTacToe#searchWin"/>
+			<input>
+				<soap:body use="literal" namespace="urn:DW_TicTacToe"/>
+			</input>
+			<output>
+				<soap:body use="literal" namespace="urn:DW_TicTacToe"/>
+			</output>
+		</operation>
+		<operation name="searchBlock">
+			<soap:operation soapAction="urn:DW_TicTacToe#searchBlock"/>
+			<input>
+				<soap:body use="literal" namespace="urn:DW_TicTacToe"/>
+			</input>
+			<output>
+				<soap:body use="literal" namespace="urn:DW_TicTacToe"/>
+			</output>
+		</operation>
+		<operation name="searchTick">
+			<soap:operation soapAction="urn:DW_TicTacToe#searchTick"/>
+			<input>
+				<soap:body use="literal" namespace="urn:DW_TicTacToe"/>
+			</input>
+			<output>
+				<soap:body use="literal" namespace="urn:DW_TicTacToe"/>
+			</output>
+		</operation>
+		<operation name="playComputer">
+			<soap:operation soapAction="urn:DW_TicTacToe#playComputer"/>
+			<input>
+				<soap:body use="literal" namespace="urn:DW_TicTacToe"/>
+			</input>
+		</operation>
+		<operation name="getBoardStr">
+			<soap:operation soapAction="urn:DW_TicTacToe#getBoardStr"/>
+			<input>
+				<soap:body use="literal" namespace="urn:DW_TicTacToe"/>
+			</input>
+			<output>
+				<soap:body use="literal" namespace="urn:DW_TicTacToe"/>
+			</output>
+		</operation>
+		<operation name="prueba">
+			<soap:operation soapAction="urn:DW_TicTacToe#prueba"/>
+			<input>
+				<soap:body use="literal" namespace="urn:DW_TicTacToe"/>
+			</input>
+			<output>
+				<soap:body use="literal" namespace="urn:DW_TicTacToe"/>
+			</output>
+		</operation>
+		<operation name="checkWin">
+			<soap:operation soapAction="urn:DW_TicTacToe#checkWin"/>
+			<input>
+				<soap:body use="literal" namespace="urn:DW_TicTacToe"/>
+			</input>
+			<output>
+				<soap:body use="literal" namespace="urn:DW_TicTacToe"/>
+			</output>
+		</operation>
+		<operation name="isFull">
+			<soap:operation soapAction="urn:DW_TicTacToe#isFull"/>
+			<input>
+				<soap:body use="literal" namespace="urn:DW_TicTacToe"/>
+			</input>
+			<output>
+				<soap:body use="literal" namespace="urn:DW_TicTacToe"/>
+			</output>
+		</operation>
+		<operation name="playComputerRand">
+			<soap:operation soapAction="urn:DW_TicTacToe#playComputerRand"/>
+			<input>
+				<soap:body use="literal" namespace="urn:DW_TicTacToe"/>
+			</input>
+		</operation>
+	</binding>
+	<service name="DW_TicTacToeService">
+		<port name="DW_TicTacToePort" binding="tns:DW_TicTacToeBinding">
+			<soap:address location="https://titanic.ecci.ucr.ac.cr/~ec04740/TicTacToe/"/>
+		</port>
+	</service>
+	<message name="tickIn">
+		<part name="parameters" element="tns:tick"/>
+	</message>
+	<message name="searchWinIn">
+		<part name="parameters" element="tns:searchWin"/>
+	</message>
+	<message name="searchWinOut">
+		<part name="parameters" element="tns:searchWinResponse"/>
+	</message>
+	<message name="searchBlockIn">
+		<part name="parameters" element="tns:searchBlock"/>
+	</message>
+	<message name="searchBlockOut">
+		<part name="parameters" element="tns:searchBlockResponse"/>
+	</message>
+	<message name="searchTickIn">
+		<part name="parameters" element="tns:searchTick"/>
+	</message>
+	<message name="searchTickOut">
+		<part name="parameters" element="tns:searchTickResponse"/>
+	</message>
+	<message name="playComputerIn">
+		<part name="parameters" element="tns:playComputer"/>
+	</message>
+	<message name="getBoardStrIn">
+		<part name="parameters" element="tns:getBoardStr"/>
+	</message>
+	<message name="getBoardStrOut">
+		<part name="parameters" element="tns:getBoardStrResponse"/>
+	</message>
+	<message name="pruebaIn">
+		<part name="parameters" element="tns:prueba"/>
+	</message>
+	<message name="pruebaOut">
+		<part name="parameters" element="tns:pruebaResponse"/>
+	</message>
+	<message name="checkWinIn">
+		<part name="parameters" element="tns:checkWin"/>
+	</message>
+	<message name="checkWinOut">
+		<part name="parameters" element="tns:checkWinResponse"/>
+	</message>
+	<message name="isFullIn">
+		<part name="parameters" element="tns:isFull"/>
+	</message>
+	<message name="isFullOut">
+		<part name="parameters" element="tns:isFullResponse"/>
+	</message>
+	<message name="playComputerRandIn">
+		<part name="parameters" element="tns:playComputerRand"/>
+	</message>
+</definitions>

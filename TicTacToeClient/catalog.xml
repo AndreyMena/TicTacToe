@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="https://titanic.ecci.ucr.ac.cr/~ec04740/TicTacToe/TicTacToe.wsdl" uri="xml-resources/web-service-references/TicTacToe/wsdl/titanic.ecci.ucr.ac.cr/_ec04740/TicTacToe/TicTacToe.wsdl"/>
+</catalog>
