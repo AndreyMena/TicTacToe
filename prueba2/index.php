@@ -11,9 +11,9 @@
         $myString = new Value("Hello, World!");
 
         $factorial=new Value($_POST['factorial'], Value::$xmlrpcInt);
-        $f=new Request("matematica.factorial", [$factorial]);
-        $c=new Client("http://localhost:84/prueba2/matematica.php"); // Asumiendo que el servidor está ahí
-        $c->setDebug(0); // Si se cambia a 1 o 2 se pueden depurar problemas en la comunicación
+        $f=new Request("tictactoe.factorial", [$factorial]);
+        $c=new Client("http://localhost:84/TicTacToe/prueba2/matematica.php"); // Asumiendo que el servidor está ahí
+        $c->setDebug(1); // Si se cambia a 1 o 2 se pueden depurar problemas en la comunicación
         $r=$c->send($f);
         if (!$r) { die("Hubo un fallo."); }
         $v=$r->value();
