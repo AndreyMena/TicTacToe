@@ -122,6 +122,13 @@
 					</xsd:sequence>
 				</xsd:complexType>
 			</xsd:element>
+			<xsd:element name="playComputerRandResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="playComputerRandResult" type="xsd:string"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
 		</xsd:schema>
 	</types>
 	<portType name="DW_TicTacToePort">
@@ -171,6 +178,7 @@
 		<operation name="playComputerRand">
 			<documentation>Metodo que busca la mejor posicion para marcar  en el turno (unicamente por la maquina).</documentation>
 			<input message="tns:playComputerRandIn"/>
+			<output message="tns:playComputerRandOut"/>
 		</operation>
 	</portType>
 	<binding name="DW_TicTacToeBinding" type="tns:DW_TicTacToePort">
@@ -255,6 +263,9 @@
 			<input>
 				<soap:body use="literal" namespace="urn:DW_TicTacToe"/>
 			</input>
+			<output>
+				<soap:body use="literal" namespace="urn:DW_TicTacToe"/>
+			</output>
 		</operation>
 	</binding>
 	<service name="DW_TicTacToeService">
@@ -312,5 +323,8 @@
 	</message>
 	<message name="playComputerRandIn">
 		<part name="parameters" element="tns:playComputerRand"/>
+	</message>
+	<message name="playComputerRandOut">
+		<part name="parameters" element="tns:playComputerRandResponse"/>
 	</message>
 </definitions>

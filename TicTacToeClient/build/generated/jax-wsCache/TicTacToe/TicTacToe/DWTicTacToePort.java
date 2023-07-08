@@ -157,11 +157,14 @@ public interface DWTicTacToePort {
      * Metodo que busca la mejor posicion para marcar  en el turno (unicamente por la maquina).
      * 
      * @param jugador
+     * @return
+     *     returns java.lang.String
      */
     @WebMethod(action = "urn:DW_TicTacToe#playComputerRand")
-    @Oneway
+    @WebResult(name = "playComputerRandResult", targetNamespace = "")
     @RequestWrapper(localName = "playComputerRand", targetNamespace = "urn:DW_TicTacToe", className = "TicTacToe.PlayComputerRand")
-    public void playComputerRand(
+    @ResponseWrapper(localName = "playComputerRandResponse", targetNamespace = "urn:DW_TicTacToe", className = "TicTacToe.PlayComputerRandResponse")
+    public String playComputerRand(
         @WebParam(name = "jugador", targetNamespace = "")
         int jugador);
 

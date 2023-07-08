@@ -22,20 +22,11 @@ public class TicTacToeClient {
         TicTacToe.DWTicTacToeService service = new TicTacToe.DWTicTacToeService();
         TicTacToe.DWTicTacToePort tictactoe = service.getDWTicTacToePort();
         ((BindingProvider)tictactoe).getRequestContext().put(BindingProvider.SESSION_MAINTAIN_PROPERTY,true);
-        tictactoe.tick(1, 2, 2);
-
-        System.out.println(tictactoe.getBoardStr());
-        tictactoe.playComputerRand(2);
-        /*
-        try {
-            // Hacer que el programa espere durante 5 segundos
-            Thread.sleep(5000); // 5000 milisegundos = 5 segundos
-        } catch (InterruptedException e) {
-            // Manejar una posible excepción si la espera es interrumpida
-            e.printStackTrace();
-        }  */
-        System.out.println(tictactoe.getBoardStr());  
-        System.out.println(tictactoe.isFull(0));  
+        //tictactoe.tick(1, 2, 2);
+        new TicTacToeInterface().setVisible(true);
+        //System.out.println(tictactoe.getBoardStr());
+        //tictactoe.playComputerRand(2);
+          
         
     }
     

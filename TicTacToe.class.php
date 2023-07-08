@@ -222,9 +222,11 @@ class TicTacToe {
 	 * Metodo que busca la mejor posicion para marcar  en el turno (unicamente por la maquina).
 	 * 
 	 * @param int $jugador puede ser 1 o 2
+	 * @return string
 	 **/	
 	public function playComputerRand($jugador) {
 		$posiciones = array();
+		$result = "";
         for ($i=0; $i<3; $i++) {
             for ($j=0; $j<3; $j++) {
 				if ($this->board[$i][$j] == 0) {
@@ -236,6 +238,9 @@ class TicTacToe {
 		$posRand = rand(0, $numeroPosiciones - 1);
 		//return $posiciones;
 		$this->tick($posiciones[$posRand][0], $posiciones[$posRand][1], $jugador);
+		$result = strval($posiciones[$posRand][0]);
+		$result .= strval($posiciones[$posRand][1]);
+		return $result;
 		//return $posiciones[$posRand];
 	}
 }

@@ -165,4 +165,12 @@ public class ObjectFactory {
         return new PlayComputerRand();
     }
 
+    /**
+     * Create an instance of {@link PlayComputerRandResponse }
+     * 
+     */
+    public PlayComputerRandResponse createPlayComputerRandResponse() {
+        return new PlayComputerRandResponse();
+    }
+
 }
