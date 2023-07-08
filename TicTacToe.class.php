@@ -227,13 +227,14 @@ class TicTacToe {
 		$posiciones = array();
         for ($i=0; $i<3; $i++) {
             for ($j=0; $j<3; $j++) {
-				if ($this->board[i][j] == 0) {
+				if ($this->board[$i][$j] == 0) {
 					$posiciones[] = array($i, $j);
 				}
             }
         }
 		$numeroPosiciones = count($posiciones);
 		$posRand = rand(0, $numeroPosiciones - 1);
+		//return $posiciones;
 		$this->tick($posiciones[$posRand][0], $posiciones[$posRand][1], $jugador);
 		//return $posiciones[$posRand];
 	}

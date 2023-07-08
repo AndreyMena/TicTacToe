@@ -25,7 +25,7 @@ public class TicTacToeClient {
         tictactoe.tick(1, 2, 2);
 
         System.out.println(tictactoe.getBoardStr());
-        tictactoe.tick(2, 1, 1);
+        tictactoe.playComputerRand(2);
         /*
         try {
             // Hacer que el programa espere durante 5 segundos
@@ -33,8 +33,7 @@ public class TicTacToeClient {
         } catch (InterruptedException e) {
             // Manejar una posible excepción si la espera es interrumpida
             e.printStackTrace();
-        }  */      
-        tictactoe.playComputer(2);
+        }  */
         System.out.println(tictactoe.getBoardStr());  
         System.out.println(tictactoe.isFull(0));  
         
