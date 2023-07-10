@@ -4,11 +4,15 @@ require_once 'TicTacToe.class.php';
 
 $ttt = new TicTacToe();
 
-$str = $ttt->playComputerRand(1);
+$str = $ttt->getRanking();
+
 echo $str;
-echo "<br />";
+/*echo "<br />";
 echo $ttt->getBoardStr();
-
-
-echo $ttt->checkWin(2);
+echo "<br />";
+echo "<br />";
+$ttt->addToRanking("AndreyAAAAA");
+sleep(5);
+$ttt->addToRanking("AndreyEEEE");
+*/
 ?>

@@ -196,6 +196,7 @@ public class TicTacToeInterface extends javax.swing.JFrame {
         jButton2.setEnabled(false);
         if (tictactoe.checkWin(1)) {
             String name = JOptionPane.showInputDialog("You've won! \nPlease enter your name:");
+            name = name.replaceAll("\\s", "");
             if (name == null) {
                 new MenuGame().setVisible(true);
                 this.setVisible(false);
@@ -278,6 +279,7 @@ public class TicTacToeInterface extends javax.swing.JFrame {
         jButton1.setEnabled(false);
         if (tictactoe.checkWin(1)) {
             String name = JOptionPane.showInputDialog("You've won! \nPlease enter your name:");
+            name = name.replaceAll("\\s", "");
             if (name == null) {
                 new MenuGame().setVisible(true);
                 this.setVisible(false);
@@ -364,6 +366,7 @@ public class TicTacToeInterface extends javax.swing.JFrame {
         jButton3.setEnabled(false);
         if (tictactoe.checkWin(1)) {
             String name = JOptionPane.showInputDialog("You've won! \nPlease enter your name:");
+            name = name.replaceAll("\\s", "");
             if (name == null) {
                 new MenuGame().setVisible(true);
                 this.setVisible(false);
@@ -444,6 +447,7 @@ public class TicTacToeInterface extends javax.swing.JFrame {
         jButton4.setEnabled(false);
         if (tictactoe.checkWin(1)) {
             String name = JOptionPane.showInputDialog("You've won! \nPlease enter your name:");
+            name = name.replaceAll("\\s", "");
             if (name == null) {
                 new MenuGame().setVisible(true);
                 this.setVisible(false);
@@ -524,6 +528,7 @@ public class TicTacToeInterface extends javax.swing.JFrame {
         jButton5.setEnabled(false);
         if (tictactoe.checkWin(1)) {
             String name = JOptionPane.showInputDialog("You've won! \nPlease enter your name:");
+            name = name.replaceAll("\\s", "");
             if (name == null) {
                 new MenuGame().setVisible(true);
                 this.setVisible(false);
@@ -604,6 +609,7 @@ public class TicTacToeInterface extends javax.swing.JFrame {
         jButton6.setEnabled(false);
         if (tictactoe.checkWin(1)) {
             String name = JOptionPane.showInputDialog("You've won! \nPlease enter your name:");
+            name = name.replaceAll("\\s", "");
             if (name == null) {
                 new MenuGame().setVisible(true);
                 this.setVisible(false);
@@ -684,6 +690,7 @@ public class TicTacToeInterface extends javax.swing.JFrame {
         jButton7.setEnabled(false);
         if (tictactoe.checkWin(1)) {
             String name = JOptionPane.showInputDialog("You've won! \nPlease enter your name:");
+            name = name.replaceAll("\\s", "");
             if (name == null) {
                 new MenuGame().setVisible(true);
                 this.setVisible(false);
@@ -764,6 +771,7 @@ public class TicTacToeInterface extends javax.swing.JFrame {
         jButton8.setEnabled(false);
         if (tictactoe.checkWin(1)) {
             String name = JOptionPane.showInputDialog("You've won! \nPlease enter your name:");
+            name = name.replaceAll("\\s", "");
             if (name == null) {
                 new MenuGame().setVisible(true);
                 this.setVisible(false);
@@ -844,6 +852,7 @@ public class TicTacToeInterface extends javax.swing.JFrame {
         jButton9.setEnabled(false);
         if (tictactoe.checkWin(1)) {
             String name = JOptionPane.showInputDialog("You've won! \nPlease enter your name:");
+            name = name.replaceAll("\\s", "");
             if (name == null) {
                 new MenuGame().setVisible(true);
                 this.setVisible(false);

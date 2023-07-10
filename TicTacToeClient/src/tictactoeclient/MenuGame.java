@@ -3,17 +3,24 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package tictactoeclient;
-
+import java.io.*;
+import java.lang.Thread;
+import javax.swing.JOptionPane;
+import javax.xml.ws.BindingProvider;
 /**
  *
  * @author andre
  */
 public class MenuGame extends javax.swing.JFrame {
-
+    TicTacToe.DWTicTacToeService service;
+    TicTacToe.DWTicTacToePort tictactoe;
     /**
      * Creates new form MenuGame
      */
     public MenuGame() {
+        service = new TicTacToe.DWTicTacToeService();
+        tictactoe = service.getDWTicTacToePort();
+        ((BindingProvider)tictactoe).getRequestContext().put(BindingProvider.SESSION_MAINTAIN_PROPERTY,true);        
         initComponents();
     }
 
@@ -114,7 +121,8 @@ public class MenuGame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitButtonActionPerformed
-
+        this.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_ExitButtonActionPerformed
 
     private void PlayButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PlayButtonActionPerformed
@@ -124,7 +132,33 @@ public class MenuGame extends javax.swing.JFrame {
     }//GEN-LAST:event_PlayButtonActionPerformed
 
     private void RankingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RankingButtonActionPerformed
-        // TODO add your handling code here:
+        String ranking = tictactoe.getRanking();
+       
+        String result = "";
+        result += "<html><table border=1><tr><th>Name</th><th>Time</th></tr>";
+
+        
+        if (ranking == "") {
+            JOptionPane.showMessageDialog(this, "There is no players yet");
+        }else{
+            String[] lineas = ranking.split("\\n");
+            for (String linea : lineas) {
+                String[] nameTime = linea.split(" ");
+                result += "<tr>";
+                result += "<td>"+nameTime[0] + "</td>"+"<td>"+nameTime[1] + "</td>";
+                //result += nameTime[0] + nameTime[1] + "\n";
+                result += "</tr>";
+                //System.out.println(linea);
+                //System.out.println(nameTime[0]);
+            }
+            System.out.println(result);   
+            //String htmlFormattedText = "<html><pre>" + result + "<pre/><html/>";
+            result+= "</table></html>";
+            JOptionPane.showMessageDialog(this, result);
+        }
+
+
+        
     }//GEN-LAST:event_RankingButtonActionPerformed
 
     /**
