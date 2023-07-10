@@ -195,50 +195,77 @@ public class TicTacToeInterface extends javax.swing.JFrame {
         jButton2.setText("X");
         jButton2.setEnabled(false);
         if (tictactoe.checkWin(1)) {
-            JOptionPane.showMessageDialog(this, "Has ganado");
+            String name = JOptionPane.showInputDialog("You've won! \nPlease enter your name:");
+            if (name == null) {
+                new MenuGame().setVisible(true);
+                this.setVisible(false);
+                this.dispose();                
+            }else{
+                tictactoe.addToRanking(name);
+                new MenuGame().setVisible(true);
+                this.setVisible(false);
+                this.dispose();                 
+            }
         }else{
-            String checkComputer = tictactoe.playComputerRand(2);
-            switch (checkComputer) {
-                 case "00":
-                    jButton1.setText("O");
-                    jButton1.setEnabled(false);
-                    break;
-                 case "01":
-                    jButton2.setText("O");
-                    jButton2.setEnabled(false);
-                    break;
-                 case "02":
-                    jButton3.setText("O");
-                    jButton3.setEnabled(false);
-                    break;
-                 case "10":
-                    jButton4.setText("O");
-                    jButton4.setEnabled(false);
-                    break;
-                 case "11":
-                    jButton5.setText("O");
-                    jButton5.setEnabled(false);
-                    break;
-                 case "12":
-                    jButton6.setText("O");
-                    jButton6.setEnabled(false);
-                    break;
-                 case "20":
-                    jButton7.setText("O");
-                    jButton7.setEnabled(false);
-                    break;
-                 case "21":
-                    jButton8.setText("O");
-                    jButton8.setEnabled(false);
-                    break;
-                 case "22":
-                    jButton9.setText("O");
-                    jButton9.setEnabled(false);
-                    break;
-             }
-            //jButton1.setText("O");
-            if (tictactoe.checkWin(2)) {
-                JOptionPane.showMessageDialog(this, "Has perdido");
+            if (tictactoe.isFull(1)) {
+                JOptionPane.showMessageDialog(this, "It's a tie");
+                new MenuGame().setVisible(true);
+                this.setVisible(false);
+                this.dispose();                
+            }else{
+                String checkComputer = tictactoe.playComputerRand(2);
+                switch (checkComputer) {
+                     case "00":
+                        jButton1.setText("O");
+                        jButton1.setEnabled(false);
+                        break;
+                     case "01":
+                        jButton2.setText("O");
+                        jButton2.setEnabled(false);
+                        break;
+                     case "02":
+                        jButton3.setText("O");
+                        jButton3.setEnabled(false);
+                        break;
+                     case "10":
+                        jButton4.setText("O");
+                        jButton4.setEnabled(false);
+                        break;
+                     case "11":
+                        jButton5.setText("O");
+                        jButton5.setEnabled(false);
+                        break;
+                     case "12":
+                        jButton6.setText("O");
+                        jButton6.setEnabled(false);
+                        break;
+                     case "20":
+                        jButton7.setText("O");
+                        jButton7.setEnabled(false);
+                        break;
+                     case "21":
+                        jButton8.setText("O");
+                        jButton8.setEnabled(false);
+                        break;
+                     case "22":
+                        jButton9.setText("O");
+                        jButton9.setEnabled(false);
+                        break;
+                 }
+                //jButton1.setText("O");
+                if (tictactoe.checkWin(2)) {
+                    JOptionPane.showMessageDialog(this, "You've lost");
+                    new MenuGame().setVisible(true);
+                    this.setVisible(false);
+                    this.dispose();                
+                }else{
+                    if (tictactoe.isFull(1)) {
+                        JOptionPane.showMessageDialog(this, "It's a tie");
+                        new MenuGame().setVisible(true);
+                        this.setVisible(false);
+                        this.dispose();                
+                    }                    
+                }
             }
         }        
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -250,56 +277,85 @@ public class TicTacToeInterface extends javax.swing.JFrame {
         jButton1.setText("X");
         jButton1.setEnabled(false);
         if (tictactoe.checkWin(1)) {
-            JOptionPane.showMessageDialog(this, "Has ganado");
+            String name = JOptionPane.showInputDialog("You've won! \nPlease enter your name:");
+            if (name == null) {
+                new MenuGame().setVisible(true);
+                this.setVisible(false);
+                this.dispose();                
+            }else{
+                tictactoe.addToRanking(name);
+                new MenuGame().setVisible(true);
+                this.setVisible(false);
+                this.dispose();                 
+            }            
         }else{
-            String checkComputer = tictactoe.playComputerRand(2);
-            switch (checkComputer) {
-                 case "00":
-                    jButton1.setText("O");
-                    jButton1.setEnabled(false);
-                    break;
-                 case "01":
-                    jButton2.setText("O");
-                    jButton2.setEnabled(false);
-                    break;
-                 case "02":
-                    jButton3.setText("O");
-                    jButton3.setEnabled(false);
-                    break;
-                 case "10":
-                    jButton4.setText("O");
-                    jButton4.setEnabled(false);
-                    break;
-                 case "11":
-                    jButton5.setText("O");
-                    jButton5.setEnabled(false);
-                    break;
-                 case "12":
-                    jButton6.setText("O");
-                    jButton6.setEnabled(false);
-                    break;
-                 case "20":
-                    jButton7.setText("O");
-                    jButton7.setEnabled(false);
-                    break;
-                 case "21":
-                    jButton8.setText("O");
-                    jButton8.setEnabled(false);
-                    break;
-                 case "22":
-                    jButton9.setText("O");
-                    jButton9.setEnabled(false);
-                    break;
-             }
-            //jButton1.setText("O");
-            if (tictactoe.checkWin(2)) {
-                JOptionPane.showMessageDialog(this, "Has perdido");
+            if (tictactoe.isFull(1)) {
+                JOptionPane.showMessageDialog(this, "It's a tie");
+                new MenuGame().setVisible(true);
+                this.setVisible(false);
+                this.dispose();                
+            }else{
+                String checkComputer = tictactoe.playComputerRand(2);
+                switch (checkComputer) {
+                     case "00":
+                        jButton1.setText("O");
+                        jButton1.setEnabled(false);
+                        break;
+                     case "01":
+                        jButton2.setText("O");
+                        jButton2.setEnabled(false);
+                        break;
+                     case "02":
+                        jButton3.setText("O");
+                        jButton3.setEnabled(false);
+                        break;
+                     case "10":
+                        jButton4.setText("O");
+                        jButton4.setEnabled(false);
+                        break;
+                     case "11":
+                        jButton5.setText("O");
+                        jButton5.setEnabled(false);
+                        break;
+                     case "12":
+                        jButton6.setText("O");
+                        jButton6.setEnabled(false);
+                        break;
+                     case "20":
+                        jButton7.setText("O");
+                        jButton7.setEnabled(false);
+                        break;
+                     case "21":
+                        jButton8.setText("O");
+                        jButton8.setEnabled(false);
+                        break;
+                     case "22":
+                        jButton9.setText("O");
+                        jButton9.setEnabled(false);
+                        break;
+                 }
+                //jButton1.setText("O");
+                if (tictactoe.checkWin(2)) {
+                    JOptionPane.showMessageDialog(this, "You've lost");
+                    new MenuGame().setVisible(true);
+                    this.setVisible(false);
+                    this.dispose();                
+                }else{
+                    if (tictactoe.isFull(1)) {
+                        JOptionPane.showMessageDialog(this, "It's a tie");
+                        new MenuGame().setVisible(true);
+                        this.setVisible(false);
+                        this.dispose();                
+                    }                    
+                }
             }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void GoBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GoBackActionPerformed
-        // TODO add your handling code here:
+        new MenuGame().setVisible(true);
+        this.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_GoBackActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -307,50 +363,77 @@ public class TicTacToeInterface extends javax.swing.JFrame {
         jButton3.setText("X");
         jButton3.setEnabled(false);
         if (tictactoe.checkWin(1)) {
-            JOptionPane.showMessageDialog(this, "Has ganado");
+            String name = JOptionPane.showInputDialog("You've won! \nPlease enter your name:");
+            if (name == null) {
+                new MenuGame().setVisible(true);
+                this.setVisible(false);
+                this.dispose();                
+            }else{
+                tictactoe.addToRanking(name);
+                new MenuGame().setVisible(true);
+                this.setVisible(false);
+                this.dispose();                 
+            }            
         }else{
-            String checkComputer = tictactoe.playComputerRand(2);
-            switch (checkComputer) {
-                 case "00":
-                    jButton1.setText("O");
-                    jButton1.setEnabled(false);
-                    break;
-                 case "01":
-                    jButton2.setText("O");
-                    jButton2.setEnabled(false);
-                    break;
-                 case "02":
-                    jButton3.setText("O");
-                    jButton3.setEnabled(false);
-                    break;
-                 case "10":
-                    jButton4.setText("O");
-                    jButton4.setEnabled(false);
-                    break;
-                 case "11":
-                    jButton5.setText("O");
-                    jButton5.setEnabled(false);
-                    break;
-                 case "12":
-                    jButton6.setText("O");
-                    jButton6.setEnabled(false);
-                    break;
-                 case "20":
-                    jButton7.setText("O");
-                    jButton7.setEnabled(false);
-                    break;
-                 case "21":
-                    jButton8.setText("O");
-                    jButton8.setEnabled(false);
-                    break;
-                 case "22":
-                    jButton9.setText("O");
-                    jButton9.setEnabled(false);
-                    break;
-             }
-            //jButton1.setText("O");
-            if (tictactoe.checkWin(2)) {
-                JOptionPane.showMessageDialog(this, "Has perdido");
+            if (tictactoe.isFull(1)) {
+                JOptionPane.showMessageDialog(this, "It's a tie");
+                new MenuGame().setVisible(true);
+                this.setVisible(false);
+                this.dispose();                
+            }else{
+                String checkComputer = tictactoe.playComputerRand(2);
+                switch (checkComputer) {
+                     case "00":
+                        jButton1.setText("O");
+                        jButton1.setEnabled(false);
+                        break;
+                     case "01":
+                        jButton2.setText("O");
+                        jButton2.setEnabled(false);
+                        break;
+                     case "02":
+                        jButton3.setText("O");
+                        jButton3.setEnabled(false);
+                        break;
+                     case "10":
+                        jButton4.setText("O");
+                        jButton4.setEnabled(false);
+                        break;
+                     case "11":
+                        jButton5.setText("O");
+                        jButton5.setEnabled(false);
+                        break;
+                     case "12":
+                        jButton6.setText("O");
+                        jButton6.setEnabled(false);
+                        break;
+                     case "20":
+                        jButton7.setText("O");
+                        jButton7.setEnabled(false);
+                        break;
+                     case "21":
+                        jButton8.setText("O");
+                        jButton8.setEnabled(false);
+                        break;
+                     case "22":
+                        jButton9.setText("O");
+                        jButton9.setEnabled(false);
+                        break;
+                 }
+                //jButton1.setText("O");
+                if (tictactoe.checkWin(2)) {
+                    JOptionPane.showMessageDialog(this, "You've lost");
+                    new MenuGame().setVisible(true);
+                    this.setVisible(false);
+                    this.dispose();                
+                }else{
+                    if (tictactoe.isFull(1)) {
+                        JOptionPane.showMessageDialog(this, "It's a tie");
+                        new MenuGame().setVisible(true);
+                        this.setVisible(false);
+                        this.dispose();                
+                    }                    
+                }
             }
         }        
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -360,50 +443,77 @@ public class TicTacToeInterface extends javax.swing.JFrame {
         jButton4.setText("X");
         jButton4.setEnabled(false);
         if (tictactoe.checkWin(1)) {
-            JOptionPane.showMessageDialog(this, "Has ganado");
+            String name = JOptionPane.showInputDialog("You've won! \nPlease enter your name:");
+            if (name == null) {
+                new MenuGame().setVisible(true);
+                this.setVisible(false);
+                this.dispose();                
+            }else{
+                tictactoe.addToRanking(name);
+                new MenuGame().setVisible(true);
+                this.setVisible(false);
+                this.dispose();                 
+            }          
         }else{
-            String checkComputer = tictactoe.playComputerRand(2);
-            switch (checkComputer) {
-                 case "00":
-                    jButton1.setText("O");
-                    jButton1.setEnabled(false);
-                    break;
-                 case "01":
-                    jButton2.setText("O");
-                    jButton2.setEnabled(false);
-                    break;
-                 case "02":
-                    jButton3.setText("O");
-                    jButton3.setEnabled(false);
-                    break;
-                 case "10":
-                    jButton4.setText("O");
-                    jButton4.setEnabled(false);
-                    break;
-                 case "11":
-                    jButton5.setText("O");
-                    jButton5.setEnabled(false);
-                    break;
-                 case "12":
-                    jButton6.setText("O");
-                    jButton6.setEnabled(false);
-                    break;
-                 case "20":
-                    jButton7.setText("O");
-                    jButton7.setEnabled(false);
-                    break;
-                 case "21":
-                    jButton8.setText("O");
-                    jButton8.setEnabled(false);
-                    break;
-                 case "22":
-                    jButton9.setText("O");
-                    jButton9.setEnabled(false);
-                    break;
-             }
-            //jButton1.setText("O");
-            if (tictactoe.checkWin(2)) {
-                JOptionPane.showMessageDialog(this, "Has perdido");
+            if (tictactoe.isFull(1)) {
+                JOptionPane.showMessageDialog(this, "It's a tie");
+                new MenuGame().setVisible(true);
+                this.setVisible(false);
+                this.dispose();                
+            }else{
+                String checkComputer = tictactoe.playComputerRand(2);
+                switch (checkComputer) {
+                     case "00":
+                        jButton1.setText("O");
+                        jButton1.setEnabled(false);
+                        break;
+                     case "01":
+                        jButton2.setText("O");
+                        jButton2.setEnabled(false);
+                        break;
+                     case "02":
+                        jButton3.setText("O");
+                        jButton3.setEnabled(false);
+                        break;
+                     case "10":
+                        jButton4.setText("O");
+                        jButton4.setEnabled(false);
+                        break;
+                     case "11":
+                        jButton5.setText("O");
+                        jButton5.setEnabled(false);
+                        break;
+                     case "12":
+                        jButton6.setText("O");
+                        jButton6.setEnabled(false);
+                        break;
+                     case "20":
+                        jButton7.setText("O");
+                        jButton7.setEnabled(false);
+                        break;
+                     case "21":
+                        jButton8.setText("O");
+                        jButton8.setEnabled(false);
+                        break;
+                     case "22":
+                        jButton9.setText("O");
+                        jButton9.setEnabled(false);
+                        break;
+                 }
+                //jButton1.setText("O");
+                if (tictactoe.checkWin(2)) {
+                    JOptionPane.showMessageDialog(this, "You've lost");
+                    new MenuGame().setVisible(true);
+                    this.setVisible(false);
+                    this.dispose();                
+                }else{
+                    if (tictactoe.isFull(1)) {
+                        JOptionPane.showMessageDialog(this, "It's a tie");
+                        new MenuGame().setVisible(true);
+                        this.setVisible(false);
+                        this.dispose();                
+                    }                    
+                }
             }
         }        
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -413,50 +523,77 @@ public class TicTacToeInterface extends javax.swing.JFrame {
         jButton5.setText("X");
         jButton5.setEnabled(false);
         if (tictactoe.checkWin(1)) {
-            JOptionPane.showMessageDialog(this, "Has ganado");
+            String name = JOptionPane.showInputDialog("You've won! \nPlease enter your name:");
+            if (name == null) {
+                new MenuGame().setVisible(true);
+                this.setVisible(false);
+                this.dispose();                
+            }else{
+                tictactoe.addToRanking(name);
+                new MenuGame().setVisible(true);
+                this.setVisible(false);
+                this.dispose();                 
+            }           
         }else{
-            String checkComputer = tictactoe.playComputerRand(2);
-            switch (checkComputer) {
-                 case "00":
-                    jButton1.setText("O");
-                    jButton1.setEnabled(false);
-                    break;
-                 case "01":
-                    jButton2.setText("O");
-                    jButton2.setEnabled(false);
-                    break;
-                 case "02":
-                    jButton3.setText("O");
-                    jButton3.setEnabled(false);
-                    break;
-                 case "10":
-                    jButton4.setText("O");
-                    jButton4.setEnabled(false);
-                    break;
-                 case "11":
-                    jButton5.setText("O");
-                    jButton5.setEnabled(false);
-                    break;
-                 case "12":
-                    jButton6.setText("O");
-                    jButton6.setEnabled(false);
-                    break;
-                 case "20":
-                    jButton7.setText("O");
-                    jButton7.setEnabled(false);
-                    break;
-                 case "21":
-                    jButton8.setText("O");
-                    jButton8.setEnabled(false);
-                    break;
-                 case "22":
-                    jButton9.setText("O");
-                    jButton9.setEnabled(false);
-                    break;
-             }
-            //jButton1.setText("O");
-            if (tictactoe.checkWin(2)) {
-                JOptionPane.showMessageDialog(this, "Has perdido");
+            if (tictactoe.isFull(1)) {
+                JOptionPane.showMessageDialog(this, "It's a tie");
+                new MenuGame().setVisible(true);
+                this.setVisible(false);
+                this.dispose();                
+            }else{
+                String checkComputer = tictactoe.playComputerRand(2);
+                switch (checkComputer) {
+                     case "00":
+                        jButton1.setText("O");
+                        jButton1.setEnabled(false);
+                        break;
+                     case "01":
+                        jButton2.setText("O");
+                        jButton2.setEnabled(false);
+                        break;
+                     case "02":
+                        jButton3.setText("O");
+                        jButton3.setEnabled(false);
+                        break;
+                     case "10":
+                        jButton4.setText("O");
+                        jButton4.setEnabled(false);
+                        break;
+                     case "11":
+                        jButton5.setText("O");
+                        jButton5.setEnabled(false);
+                        break;
+                     case "12":
+                        jButton6.setText("O");
+                        jButton6.setEnabled(false);
+                        break;
+                     case "20":
+                        jButton7.setText("O");
+                        jButton7.setEnabled(false);
+                        break;
+                     case "21":
+                        jButton8.setText("O");
+                        jButton8.setEnabled(false);
+                        break;
+                     case "22":
+                        jButton9.setText("O");
+                        jButton9.setEnabled(false);
+                        break;
+                 }
+                //jButton1.setText("O");
+                if (tictactoe.checkWin(2)) {
+                    JOptionPane.showMessageDialog(this, "You've lost");
+                    new MenuGame().setVisible(true);
+                    this.setVisible(false);
+                    this.dispose();                
+                }else{
+                    if (tictactoe.isFull(1)) {
+                        JOptionPane.showMessageDialog(this, "It's a tie");
+                        new MenuGame().setVisible(true);
+                        this.setVisible(false);
+                        this.dispose();                
+                    }                    
+                }
             }
         } 
     }//GEN-LAST:event_jButton5ActionPerformed
@@ -466,50 +603,77 @@ public class TicTacToeInterface extends javax.swing.JFrame {
         jButton6.setText("X");
         jButton6.setEnabled(false);
         if (tictactoe.checkWin(1)) {
-            JOptionPane.showMessageDialog(this, "Has ganado");
+            String name = JOptionPane.showInputDialog("You've won! \nPlease enter your name:");
+            if (name == null) {
+                new MenuGame().setVisible(true);
+                this.setVisible(false);
+                this.dispose();                
+            }else{
+                tictactoe.addToRanking(name);
+                new MenuGame().setVisible(true);
+                this.setVisible(false);
+                this.dispose();                 
+            }           
         }else{
-            String checkComputer = tictactoe.playComputerRand(2);
-            switch (checkComputer) {
-                 case "00":
-                    jButton1.setText("O");
-                    jButton1.setEnabled(false);
-                    break;
-                 case "01":
-                    jButton2.setText("O");
-                    jButton2.setEnabled(false);
-                    break;
-                 case "02":
-                    jButton3.setText("O");
-                    jButton3.setEnabled(false);
-                    break;
-                 case "10":
-                    jButton4.setText("O");
-                    jButton4.setEnabled(false);
-                    break;
-                 case "11":
-                    jButton5.setText("O");
-                    jButton5.setEnabled(false);
-                    break;
-                 case "12":
-                    jButton6.setText("O");
-                    jButton6.setEnabled(false);
-                    break;
-                 case "20":
-                    jButton7.setText("O");
-                    jButton7.setEnabled(false);
-                    break;
-                 case "21":
-                    jButton8.setText("O");
-                    jButton8.setEnabled(false);
-                    break;
-                 case "22":
-                    jButton9.setText("O");
-                    jButton9.setEnabled(false);
-                    break;
-             }
-            //jButton1.setText("O");
-            if (tictactoe.checkWin(2)) {
-                JOptionPane.showMessageDialog(this, "Has perdido");
+            if (tictactoe.isFull(1)) {
+                JOptionPane.showMessageDialog(this, "It's a tie");
+                new MenuGame().setVisible(true);
+                this.setVisible(false);
+                this.dispose();                
+            }else{
+                String checkComputer = tictactoe.playComputerRand(2);
+                switch (checkComputer) {
+                     case "00":
+                        jButton1.setText("O");
+                        jButton1.setEnabled(false);
+                        break;
+                     case "01":
+                        jButton2.setText("O");
+                        jButton2.setEnabled(false);
+                        break;
+                     case "02":
+                        jButton3.setText("O");
+                        jButton3.setEnabled(false);
+                        break;
+                     case "10":
+                        jButton4.setText("O");
+                        jButton4.setEnabled(false);
+                        break;
+                     case "11":
+                        jButton5.setText("O");
+                        jButton5.setEnabled(false);
+                        break;
+                     case "12":
+                        jButton6.setText("O");
+                        jButton6.setEnabled(false);
+                        break;
+                     case "20":
+                        jButton7.setText("O");
+                        jButton7.setEnabled(false);
+                        break;
+                     case "21":
+                        jButton8.setText("O");
+                        jButton8.setEnabled(false);
+                        break;
+                     case "22":
+                        jButton9.setText("O");
+                        jButton9.setEnabled(false);
+                        break;
+                 }
+                //jButton1.setText("O");
+                if (tictactoe.checkWin(2)) {
+                    JOptionPane.showMessageDialog(this, "You've lost");
+                    new MenuGame().setVisible(true);
+                    this.setVisible(false);
+                    this.dispose();                
+                }else{
+                    if (tictactoe.isFull(1)) {
+                        JOptionPane.showMessageDialog(this, "It's a tie");
+                        new MenuGame().setVisible(true);
+                        this.setVisible(false);
+                        this.dispose();                
+                    }                    
+                }
             }
         }        
     }//GEN-LAST:event_jButton6ActionPerformed
@@ -519,50 +683,77 @@ public class TicTacToeInterface extends javax.swing.JFrame {
         jButton7.setText("X");
         jButton7.setEnabled(false);
         if (tictactoe.checkWin(1)) {
-            JOptionPane.showMessageDialog(this, "Has ganado");
+            String name = JOptionPane.showInputDialog("You've won! \nPlease enter your name:");
+            if (name == null) {
+                new MenuGame().setVisible(true);
+                this.setVisible(false);
+                this.dispose();                
+            }else{
+                tictactoe.addToRanking(name);
+                new MenuGame().setVisible(true);
+                this.setVisible(false);
+                this.dispose();                 
+            }            
         }else{
-            String checkComputer = tictactoe.playComputerRand(2);
-            switch (checkComputer) {
-                 case "00":
-                    jButton1.setText("O");
-                    jButton1.setEnabled(false);
-                    break;
-                 case "01":
-                    jButton2.setText("O");
-                    jButton2.setEnabled(false);
-                    break;
-                 case "02":
-                    jButton3.setText("O");
-                    jButton3.setEnabled(false);
-                    break;
-                 case "10":
-                    jButton4.setText("O");
-                    jButton4.setEnabled(false);
-                    break;
-                 case "11":
-                    jButton5.setText("O");
-                    jButton5.setEnabled(false);
-                    break;
-                 case "12":
-                    jButton6.setText("O");
-                    jButton6.setEnabled(false);
-                    break;
-                 case "20":
-                    jButton7.setText("O");
-                    jButton7.setEnabled(false);
-                    break;
-                 case "21":
-                    jButton8.setText("O");
-                    jButton8.setEnabled(false);
-                    break;
-                 case "22":
-                    jButton9.setText("O");
-                    jButton9.setEnabled(false);
-                    break;
-             }
-            //jButton1.setText("O");
-            if (tictactoe.checkWin(2)) {
-                JOptionPane.showMessageDialog(this, "Has perdido");
+            if (tictactoe.isFull(1)) {
+                JOptionPane.showMessageDialog(this, "It's a tie");
+                new MenuGame().setVisible(true);
+                this.setVisible(false);
+                this.dispose();                
+            }else{
+                String checkComputer = tictactoe.playComputerRand(2);
+                switch (checkComputer) {
+                     case "00":
+                        jButton1.setText("O");
+                        jButton1.setEnabled(false);
+                        break;
+                     case "01":
+                        jButton2.setText("O");
+                        jButton2.setEnabled(false);
+                        break;
+                     case "02":
+                        jButton3.setText("O");
+                        jButton3.setEnabled(false);
+                        break;
+                     case "10":
+                        jButton4.setText("O");
+                        jButton4.setEnabled(false);
+                        break;
+                     case "11":
+                        jButton5.setText("O");
+                        jButton5.setEnabled(false);
+                        break;
+                     case "12":
+                        jButton6.setText("O");
+                        jButton6.setEnabled(false);
+                        break;
+                     case "20":
+                        jButton7.setText("O");
+                        jButton7.setEnabled(false);
+                        break;
+                     case "21":
+                        jButton8.setText("O");
+                        jButton8.setEnabled(false);
+                        break;
+                     case "22":
+                        jButton9.setText("O");
+                        jButton9.setEnabled(false);
+                        break;
+                 }
+                //jButton1.setText("O");
+                if (tictactoe.checkWin(2)) {
+                    JOptionPane.showMessageDialog(this, "You've lost");
+                    new MenuGame().setVisible(true);
+                    this.setVisible(false);
+                    this.dispose();                
+                }else{
+                    if (tictactoe.isFull(1)) {
+                        JOptionPane.showMessageDialog(this, "It's a tie");
+                        new MenuGame().setVisible(true);
+                        this.setVisible(false);
+                        this.dispose();                
+                    }                    
+                }
             }
         }        
     }//GEN-LAST:event_jButton7ActionPerformed
@@ -572,50 +763,77 @@ public class TicTacToeInterface extends javax.swing.JFrame {
         jButton8.setText("X");
         jButton8.setEnabled(false);
         if (tictactoe.checkWin(1)) {
-            JOptionPane.showMessageDialog(this, "Has ganado");
+            String name = JOptionPane.showInputDialog("You've won! \nPlease enter your name:");
+            if (name == null) {
+                new MenuGame().setVisible(true);
+                this.setVisible(false);
+                this.dispose();                
+            }else{
+                tictactoe.addToRanking(name);
+                new MenuGame().setVisible(true);
+                this.setVisible(false);
+                this.dispose();                 
+            }           
         }else{
-            String checkComputer = tictactoe.playComputerRand(2);
-            switch (checkComputer) {
-                 case "00":
-                    jButton1.setText("O");
-                    jButton1.setEnabled(false);
-                    break;
-                 case "01":
-                    jButton2.setText("O");
-                    jButton2.setEnabled(false);
-                    break;
-                 case "02":
-                    jButton3.setText("O");
-                    jButton3.setEnabled(false);
-                    break;
-                 case "10":
-                    jButton4.setText("O");
-                    jButton4.setEnabled(false);
-                    break;
-                 case "11":
-                    jButton5.setText("O");
-                    jButton5.setEnabled(false);
-                    break;
-                 case "12":
-                    jButton6.setText("O");
-                    jButton6.setEnabled(false);
-                    break;
-                 case "20":
-                    jButton7.setText("O");
-                    jButton7.setEnabled(false);
-                    break;
-                 case "21":
-                    jButton8.setText("O");
-                    jButton8.setEnabled(false);
-                    break;
-                 case "22":
-                    jButton9.setText("O");
-                    jButton9.setEnabled(false);
-                    break;
-             }
-            //jButton1.setText("O");
-            if (tictactoe.checkWin(2)) {
-                JOptionPane.showMessageDialog(this, "Has perdido");
+            if (tictactoe.isFull(1)) {
+                JOptionPane.showMessageDialog(this, "It's a tie");
+                new MenuGame().setVisible(true);
+                this.setVisible(false);
+                this.dispose();                
+            }else{
+                String checkComputer = tictactoe.playComputerRand(2);
+                switch (checkComputer) {
+                     case "00":
+                        jButton1.setText("O");
+                        jButton1.setEnabled(false);
+                        break;
+                     case "01":
+                        jButton2.setText("O");
+                        jButton2.setEnabled(false);
+                        break;
+                     case "02":
+                        jButton3.setText("O");
+                        jButton3.setEnabled(false);
+                        break;
+                     case "10":
+                        jButton4.setText("O");
+                        jButton4.setEnabled(false);
+                        break;
+                     case "11":
+                        jButton5.setText("O");
+                        jButton5.setEnabled(false);
+                        break;
+                     case "12":
+                        jButton6.setText("O");
+                        jButton6.setEnabled(false);
+                        break;
+                     case "20":
+                        jButton7.setText("O");
+                        jButton7.setEnabled(false);
+                        break;
+                     case "21":
+                        jButton8.setText("O");
+                        jButton8.setEnabled(false);
+                        break;
+                     case "22":
+                        jButton9.setText("O");
+                        jButton9.setEnabled(false);
+                        break;
+                 }
+                //jButton1.setText("O");
+                if (tictactoe.checkWin(2)) {
+                    JOptionPane.showMessageDialog(this, "You've lost");
+                    new MenuGame().setVisible(true);
+                    this.setVisible(false);
+                    this.dispose();                
+                }else{
+                    if (tictactoe.isFull(1)) {
+                        JOptionPane.showMessageDialog(this, "It's a tie");
+                        new MenuGame().setVisible(true);
+                        this.setVisible(false);
+                        this.dispose();                
+                    }                    
+                }
             }
         }        
     }//GEN-LAST:event_jButton8ActionPerformed
@@ -625,50 +843,77 @@ public class TicTacToeInterface extends javax.swing.JFrame {
         jButton9.setText("X");
         jButton9.setEnabled(false);
         if (tictactoe.checkWin(1)) {
-            JOptionPane.showMessageDialog(this, "Has ganado");
+            String name = JOptionPane.showInputDialog("You've won! \nPlease enter your name:");
+            if (name == null) {
+                new MenuGame().setVisible(true);
+                this.setVisible(false);
+                this.dispose();                
+            }else{
+                tictactoe.addToRanking(name);
+                new MenuGame().setVisible(true);
+                this.setVisible(false);
+                this.dispose();                 
+            }
         }else{
-            String checkComputer = tictactoe.playComputerRand(2);
-            switch (checkComputer) {
-                 case "00":
-                    jButton1.setText("O");
-                    jButton1.setEnabled(false);
-                    break;
-                 case "01":
-                    jButton2.setText("O");
-                    jButton2.setEnabled(false);
-                    break;
-                 case "02":
-                    jButton3.setText("O");
-                    jButton3.setEnabled(false);
-                    break;
-                 case "10":
-                    jButton4.setText("O");
-                    jButton4.setEnabled(false);
-                    break;
-                 case "11":
-                    jButton5.setText("O");
-                    jButton5.setEnabled(false);
-                    break;
-                 case "12":
-                    jButton6.setText("O");
-                    jButton6.setEnabled(false);
-                    break;
-                 case "20":
-                    jButton7.setText("O");
-                    jButton7.setEnabled(false);
-                    break;
-                 case "21":
-                    jButton8.setText("O");
-                    jButton8.setEnabled(false);
-                    break;
-                 case "22":
-                    jButton9.setText("O");
-                    jButton9.setEnabled(false);
-                    break;
-             }
-            //jButton1.setText("O");
-            if (tictactoe.checkWin(2)) {
-                JOptionPane.showMessageDialog(this, "Has perdido");
+            if (tictactoe.isFull(1)) {
+                JOptionPane.showMessageDialog(this, "It's a tie");
+                new MenuGame().setVisible(true);
+                this.setVisible(false);
+                this.dispose();                
+            }else{
+                String checkComputer = tictactoe.playComputerRand(2);
+                switch (checkComputer) {
+                     case "00":
+                        jButton1.setText("O");
+                        jButton1.setEnabled(false);
+                        break;
+                     case "01":
+                        jButton2.setText("O");
+                        jButton2.setEnabled(false);
+                        break;
+                     case "02":
+                        jButton3.setText("O");
+                        jButton3.setEnabled(false);
+                        break;
+                     case "10":
+                        jButton4.setText("O");
+                        jButton4.setEnabled(false);
+                        break;
+                     case "11":
+                        jButton5.setText("O");
+                        jButton5.setEnabled(false);
+                        break;
+                     case "12":
+                        jButton6.setText("O");
+                        jButton6.setEnabled(false);
+                        break;
+                     case "20":
+                        jButton7.setText("O");
+                        jButton7.setEnabled(false);
+                        break;
+                     case "21":
+                        jButton8.setText("O");
+                        jButton8.setEnabled(false);
+                        break;
+                     case "22":
+                        jButton9.setText("O");
+                        jButton9.setEnabled(false);
+                        break;
+                 }
+                //jButton1.setText("O");
+                if (tictactoe.checkWin(2)) {
+                    JOptionPane.showMessageDialog(this, "You've lost");
+                    new MenuGame().setVisible(true);
+                    this.setVisible(false);
+                    this.dispose();                
+                }else{
+                    if (tictactoe.isFull(1)) {
+                        JOptionPane.showMessageDialog(this, "It's a tie");
+                        new MenuGame().setVisible(true);
+                        this.setVisible(false);
+                        this.dispose();                
+                    }                    
+                }
             }
         }        
     }//GEN-LAST:event_jButton9ActionPerformed

@@ -19,15 +19,12 @@ public class TicTacToeClient {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        TicTacToe.DWTicTacToeService service = new TicTacToe.DWTicTacToeService();
-        TicTacToe.DWTicTacToePort tictactoe = service.getDWTicTacToePort();
-        ((BindingProvider)tictactoe).getRequestContext().put(BindingProvider.SESSION_MAINTAIN_PROPERTY,true);
-        //tictactoe.tick(1, 2, 2);
-        new TicTacToeInterface().setVisible(true);
-        //System.out.println(tictactoe.getBoardStr());
-        //tictactoe.playComputerRand(2);
-          
-        
+        //TicTacToe.DWTicTacToeService service = new TicTacToe.DWTicTacToeService();
+        //TicTacToe.DWTicTacToePort tictactoe = service.getDWTicTacToePort();
+        //((BindingProvider)tictactoe).getRequestContext().put(BindingProvider.SESSION_MAINTAIN_PROPERTY,true);
+
+        //new TicTacToeInterface().setVisible(true); 
+        new MenuGame().setVisible(true);
     }
     
 }

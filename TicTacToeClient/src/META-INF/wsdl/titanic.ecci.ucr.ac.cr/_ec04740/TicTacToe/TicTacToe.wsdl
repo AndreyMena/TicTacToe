@@ -9,61 +9,15 @@
 	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" name="DW_TicTacToe" targetNamespace="urn:DW_TicTacToe">
 	<types>
 		<xsd:schema targetNamespace="urn:DW_TicTacToe">
+			<xsd:element name="playAgain">
+				<xsd:complexType/>
+			</xsd:element>
 			<xsd:element name="tick">
 				<xsd:complexType>
 					<xsd:sequence>
-						<xsd:element name="fila" type="xsd:int"/>
-						<xsd:element name="columna" type="xsd:int"/>
-						<xsd:element name="jugador" type="xsd:int"/>
-					</xsd:sequence>
-				</xsd:complexType>
-			</xsd:element>
-			<xsd:element name="searchWin">
-				<xsd:complexType>
-					<xsd:sequence>
-						<xsd:element name="jugador" type="xsd:int"/>
-					</xsd:sequence>
-				</xsd:complexType>
-			</xsd:element>
-			<xsd:element name="searchWinResponse">
-				<xsd:complexType>
-					<xsd:sequence>
-						<xsd:element name="searchWinResult" type="xsd:string"/>
-					</xsd:sequence>
-				</xsd:complexType>
-			</xsd:element>
-			<xsd:element name="searchBlock">
-				<xsd:complexType>
-					<xsd:sequence>
-						<xsd:element name="jugador" type="xsd:int"/>
-					</xsd:sequence>
-				</xsd:complexType>
-			</xsd:element>
-			<xsd:element name="searchBlockResponse">
-				<xsd:complexType>
-					<xsd:sequence>
-						<xsd:element name="searchBlockResult" type="xsd:string"/>
-					</xsd:sequence>
-				</xsd:complexType>
-			</xsd:element>
-			<xsd:element name="searchTick">
-				<xsd:complexType>
-					<xsd:sequence>
-						<xsd:element name="jugador" type="xsd:int"/>
-					</xsd:sequence>
-				</xsd:complexType>
-			</xsd:element>
-			<xsd:element name="searchTickResponse">
-				<xsd:complexType>
-					<xsd:sequence>
-						<xsd:element name="searchTickResult" type="xsd:string"/>
-					</xsd:sequence>
-				</xsd:complexType>
-			</xsd:element>
-			<xsd:element name="playComputer">
-				<xsd:complexType>
-					<xsd:sequence>
-						<xsd:element name="jugador" type="xsd:int"/>
+						<xsd:element name="row" type="xsd:int"/>
+						<xsd:element name="column" type="xsd:int"/>
+						<xsd:element name="player" type="xsd:int"/>
 					</xsd:sequence>
 				</xsd:complexType>
 			</xsd:element>
@@ -77,20 +31,10 @@
 					</xsd:sequence>
 				</xsd:complexType>
 			</xsd:element>
-			<xsd:element name="prueba">
-				<xsd:complexType/>
-			</xsd:element>
-			<xsd:element name="pruebaResponse">
-				<xsd:complexType>
-					<xsd:sequence>
-						<xsd:element name="pruebaResult" type="xsd:string"/>
-					</xsd:sequence>
-				</xsd:complexType>
-			</xsd:element>
 			<xsd:element name="checkWin">
 				<xsd:complexType>
 					<xsd:sequence>
-						<xsd:element name="jugador" type="xsd:int"/>
+						<xsd:element name="player" type="xsd:int"/>
 					</xsd:sequence>
 				</xsd:complexType>
 			</xsd:element>
@@ -104,7 +48,7 @@
 			<xsd:element name="isFull">
 				<xsd:complexType>
 					<xsd:sequence>
-						<xsd:element name="jugador" type="xsd:int"/>
+						<xsd:element name="player" type="xsd:int"/>
 					</xsd:sequence>
 				</xsd:complexType>
 			</xsd:element>
@@ -118,7 +62,7 @@
 			<xsd:element name="playComputerRand">
 				<xsd:complexType>
 					<xsd:sequence>
-						<xsd:element name="jugador" type="xsd:int"/>
+						<xsd:element name="player" type="xsd:int"/>
 					</xsd:sequence>
 				</xsd:complexType>
 			</xsd:element>
@@ -129,110 +73,80 @@
 					</xsd:sequence>
 				</xsd:complexType>
 			</xsd:element>
+			<xsd:element name="addToRanking">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="name" type="xsd:string"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="getRanking">
+				<xsd:complexType/>
+			</xsd:element>
+			<xsd:element name="getRankingResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="getRankingResult" type="xsd:string"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
 		</xsd:schema>
 	</types>
 	<portType name="DW_TicTacToePort">
+		<operation name="playAgain">
+			<documentation>This method resets the variables to play again</documentation>
+			<input message="tns:playAgainIn"/>
+		</operation>
 		<operation name="tick">
-			<documentation>Este metodo marca el tablero  de acuerdo al jugador (no se encarga de buscar cual marcar)</documentation>
+			<documentation>This method tick the board according to the player</documentation>
 			<input message="tns:tickIn"/>
 		</operation>
-		<operation name="searchWin">
-			<documentation>Metodo que busca ganar en el mismo turno (unicamente por la maquina).</documentation>
-			<input message="tns:searchWinIn"/>
-			<output message="tns:searchWinOut"/>
-		</operation>
-		<operation name="searchBlock">
-			<documentation>Metodo que busca ganar en el turno (unicamente por la maquina).</documentation>
-			<input message="tns:searchBlockIn"/>
-			<output message="tns:searchBlockOut"/>
-		</operation>
-		<operation name="searchTick">
-			<documentation>Metodo que busca la mejor posicion para marcar  en el turno (unicamente por la maquina).</documentation>
-			<input message="tns:searchTickIn"/>
-			<output message="tns:searchTickOut"/>
-		</operation>
-		<operation name="playComputer">
-			<documentation>Metodo que busca la mejor posicion para marcar  en el turno (unicamente por la maquina).</documentation>
-			<input message="tns:playComputerIn"/>
-		</operation>
 		<operation name="getBoardStr">
-			<documentation>Metodo que busca la mejor posicion para marcar  en el turno (unicamente por la maquina).</documentation>
+			<documentation>This method returns the board in a strings</documentation>
 			<input message="tns:getBoardStrIn"/>
 			<output message="tns:getBoardStrOut"/>
 		</operation>
-		<operation name="prueba">
-			<documentation>Metodo que busca la mejor posicion para marcar  en el turno (unicamente por la maquina).</documentation>
-			<input message="tns:pruebaIn"/>
-			<output message="tns:pruebaOut"/>
-		</operation>
 		<operation name="checkWin">
-			<documentation>Verdadero si el jugador gano, falso si aun no ha ganado.</documentation>
+			<documentation>This method check if the player wins.</documentation>
 			<input message="tns:checkWinIn"/>
 			<output message="tns:checkWinOut"/>
 		</operation>
 		<operation name="isFull">
-			<documentation>Verdadero si esta lleno, falso si hay espacios.</documentation>
+			<documentation>This method check if board is full.</documentation>
 			<input message="tns:isFullIn"/>
 			<output message="tns:isFullOut"/>
 		</operation>
 		<operation name="playComputerRand">
-			<documentation>Metodo que busca la mejor posicion para marcar  en el turno (unicamente por la maquina).</documentation>
+			<documentation>This method make the computer play a position random.</documentation>
 			<input message="tns:playComputerRandIn"/>
 			<output message="tns:playComputerRandOut"/>
+		</operation>
+		<operation name="addToRanking">
+			<documentation>This method add to the ranking a player with the time</documentation>
+			<input message="tns:addToRankingIn"/>
+		</operation>
+		<operation name="getRanking">
+			<documentation>This method returns the ranking in a string</documentation>
+			<input message="tns:getRankingIn"/>
+			<output message="tns:getRankingOut"/>
 		</operation>
 	</portType>
 	<binding name="DW_TicTacToeBinding" type="tns:DW_TicTacToePort">
 		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="playAgain">
+			<soap:operation soapAction="urn:DW_TicTacToe#playAgain"/>
+			<input>
+				<soap:body use="literal" namespace="urn:DW_TicTacToe"/>
+			</input>
+		</operation>
 		<operation name="tick">
 			<soap:operation soapAction="urn:DW_TicTacToe#tick"/>
 			<input>
 				<soap:body use="literal" namespace="urn:DW_TicTacToe"/>
 			</input>
 		</operation>
-		<operation name="searchWin">
-			<soap:operation soapAction="urn:DW_TicTacToe#searchWin"/>
-			<input>
-				<soap:body use="literal" namespace="urn:DW_TicTacToe"/>
-			</input>
-			<output>
-				<soap:body use="literal" namespace="urn:DW_TicTacToe"/>
-			</output>
-		</operation>
-		<operation name="searchBlock">
-			<soap:operation soapAction="urn:DW_TicTacToe#searchBlock"/>
-			<input>
-				<soap:body use="literal" namespace="urn:DW_TicTacToe"/>
-			</input>
-			<output>
-				<soap:body use="literal" namespace="urn:DW_TicTacToe"/>
-			</output>
-		</operation>
-		<operation name="searchTick">
-			<soap:operation soapAction="urn:DW_TicTacToe#searchTick"/>
-			<input>
-				<soap:body use="literal" namespace="urn:DW_TicTacToe"/>
-			</input>
-			<output>
-				<soap:body use="literal" namespace="urn:DW_TicTacToe"/>
-			</output>
-		</operation>
-		<operation name="playComputer">
-			<soap:operation soapAction="urn:DW_TicTacToe#playComputer"/>
-			<input>
-				<soap:body use="literal" namespace="urn:DW_TicTacToe"/>
-			</input>
-		</operation>
 		<operation name="getBoardStr">
 			<soap:operation soapAction="urn:DW_TicTacToe#getBoardStr"/>
-			<input>
-				<soap:body use="literal" namespace="urn:DW_TicTacToe"/>
-			</input>
-			<output>
-				<soap:body use="literal" namespace="urn:DW_TicTacToe"/>
-			</output>
-		</operation>
-		<operation name="prueba">
-			<soap:operation soapAction="urn:DW_TicTacToe#prueba"/>
 			<input>
 				<soap:body use="literal" namespace="urn:DW_TicTacToe"/>
 			</input>
@@ -267,47 +181,38 @@
 				<soap:body use="literal" namespace="urn:DW_TicTacToe"/>
 			</output>
 		</operation>
+		<operation name="addToRanking">
+			<soap:operation soapAction="urn:DW_TicTacToe#addToRanking"/>
+			<input>
+				<soap:body use="literal" namespace="urn:DW_TicTacToe"/>
+			</input>
+		</operation>
+		<operation name="getRanking">
+			<soap:operation soapAction="urn:DW_TicTacToe#getRanking"/>
+			<input>
+				<soap:body use="literal" namespace="urn:DW_TicTacToe"/>
+			</input>
+			<output>
+				<soap:body use="literal" namespace="urn:DW_TicTacToe"/>
+			</output>
+		</operation>
 	</binding>
 	<service name="DW_TicTacToeService">
 		<port name="DW_TicTacToePort" binding="tns:DW_TicTacToeBinding">
 			<soap:address location="https://titanic.ecci.ucr.ac.cr/~ec04740/TicTacToe/"/>
 		</port>
 	</service>
+	<message name="playAgainIn">
+		<part name="parameters" element="tns:playAgain"/>
+	</message>
 	<message name="tickIn">
 		<part name="parameters" element="tns:tick"/>
-	</message>
-	<message name="searchWinIn">
-		<part name="parameters" element="tns:searchWin"/>
-	</message>
-	<message name="searchWinOut">
-		<part name="parameters" element="tns:searchWinResponse"/>
-	</message>
-	<message name="searchBlockIn">
-		<part name="parameters" element="tns:searchBlock"/>
-	</message>
-	<message name="searchBlockOut">
-		<part name="parameters" element="tns:searchBlockResponse"/>
-	</message>
-	<message name="searchTickIn">
-		<part name="parameters" element="tns:searchTick"/>
-	</message>
-	<message name="searchTickOut">
-		<part name="parameters" element="tns:searchTickResponse"/>
-	</message>
-	<message name="playComputerIn">
-		<part name="parameters" element="tns:playComputer"/>
 	</message>
 	<message name="getBoardStrIn">
 		<part name="parameters" element="tns:getBoardStr"/>
 	</message>
 	<message name="getBoardStrOut">
 		<part name="parameters" element="tns:getBoardStrResponse"/>
-	</message>
-	<message name="pruebaIn">
-		<part name="parameters" element="tns:prueba"/>
-	</message>
-	<message name="pruebaOut">
-		<part name="parameters" element="tns:pruebaResponse"/>
 	</message>
 	<message name="checkWinIn">
 		<part name="parameters" element="tns:checkWin"/>
@@ -326,5 +231,14 @@
 	</message>
 	<message name="playComputerRandOut">
 		<part name="parameters" element="tns:playComputerRandResponse"/>
+	</message>
+	<message name="addToRankingIn">
+		<part name="parameters" element="tns:addToRanking"/>
+	</message>
+	<message name="getRankingIn">
+		<part name="parameters" element="tns:getRanking"/>
+	</message>
+	<message name="getRankingOut">
+		<part name="parameters" element="tns:getRankingResponse"/>
 	</message>
 </definitions>

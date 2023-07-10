@@ -17,7 +17,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="jugador" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+ *         &lt;element name="player" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -28,27 +28,27 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "jugador"
+    "player"
 })
 @XmlRootElement(name = "playComputerRand")
 public class PlayComputerRand {
 
-    protected int jugador;
+    protected int player;
 
     /**
-     * Obtiene el valor de la propiedad jugador.
+     * Obtiene el valor de la propiedad player.
      * 
      */
-    public int getJugador() {
-        return jugador;
+    public int getPlayer() {
+        return player;
     }
 
     /**
-     * Define el valor de la propiedad jugador.
+     * Define el valor de la propiedad player.
      * 
      */
-    public void setJugador(int value) {
-        this.jugador = value;
+    public void setPlayer(int value) {
+        this.player = value;
     }
 
 }

@@ -25,82 +25,34 @@ public interface DWTicTacToePort {
 
 
     /**
-     * Este metodo marca el tablero  de acuerdo al jugador (no se encarga de buscar cual marcar)
+     * This method resets the variables to play again
      * 
-     * @param columna
-     * @param jugador
-     * @param fila
+     */
+    @WebMethod(action = "urn:DW_TicTacToe#playAgain")
+    @Oneway
+    @RequestWrapper(localName = "playAgain", targetNamespace = "urn:DW_TicTacToe", className = "TicTacToe.PlayAgain")
+    public void playAgain();
+
+    /**
+     * This method tick the board according to the player
+     * 
+     * @param column
+     * @param row
+     * @param player
      */
     @WebMethod(action = "urn:DW_TicTacToe#tick")
     @Oneway
     @RequestWrapper(localName = "tick", targetNamespace = "urn:DW_TicTacToe", className = "TicTacToe.Tick")
     public void tick(
-        @WebParam(name = "fila", targetNamespace = "")
-        int fila,
-        @WebParam(name = "columna", targetNamespace = "")
-        int columna,
-        @WebParam(name = "jugador", targetNamespace = "")
-        int jugador);
+        @WebParam(name = "row", targetNamespace = "")
+        int row,
+        @WebParam(name = "column", targetNamespace = "")
+        int column,
+        @WebParam(name = "player", targetNamespace = "")
+        int player);
 
     /**
-     * Metodo que busca ganar en el mismo turno (unicamente por la maquina).
-     * 
-     * @param jugador
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod(action = "urn:DW_TicTacToe#searchWin")
-    @WebResult(name = "searchWinResult", targetNamespace = "")
-    @RequestWrapper(localName = "searchWin", targetNamespace = "urn:DW_TicTacToe", className = "TicTacToe.SearchWin")
-    @ResponseWrapper(localName = "searchWinResponse", targetNamespace = "urn:DW_TicTacToe", className = "TicTacToe.SearchWinResponse")
-    public String searchWin(
-        @WebParam(name = "jugador", targetNamespace = "")
-        int jugador);
-
-    /**
-     * Metodo que busca ganar en el turno (unicamente por la maquina).
-     * 
-     * @param jugador
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod(action = "urn:DW_TicTacToe#searchBlock")
-    @WebResult(name = "searchBlockResult", targetNamespace = "")
-    @RequestWrapper(localName = "searchBlock", targetNamespace = "urn:DW_TicTacToe", className = "TicTacToe.SearchBlock")
-    @ResponseWrapper(localName = "searchBlockResponse", targetNamespace = "urn:DW_TicTacToe", className = "TicTacToe.SearchBlockResponse")
-    public String searchBlock(
-        @WebParam(name = "jugador", targetNamespace = "")
-        int jugador);
-
-    /**
-     * Metodo que busca la mejor posicion para marcar  en el turno (unicamente por la maquina).
-     * 
-     * @param jugador
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod(action = "urn:DW_TicTacToe#searchTick")
-    @WebResult(name = "searchTickResult", targetNamespace = "")
-    @RequestWrapper(localName = "searchTick", targetNamespace = "urn:DW_TicTacToe", className = "TicTacToe.SearchTick")
-    @ResponseWrapper(localName = "searchTickResponse", targetNamespace = "urn:DW_TicTacToe", className = "TicTacToe.SearchTickResponse")
-    public String searchTick(
-        @WebParam(name = "jugador", targetNamespace = "")
-        int jugador);
-
-    /**
-     * Metodo que busca la mejor posicion para marcar  en el turno (unicamente por la maquina).
-     * 
-     * @param jugador
-     */
-    @WebMethod(action = "urn:DW_TicTacToe#playComputer")
-    @Oneway
-    @RequestWrapper(localName = "playComputer", targetNamespace = "urn:DW_TicTacToe", className = "TicTacToe.PlayComputer")
-    public void playComputer(
-        @WebParam(name = "jugador", targetNamespace = "")
-        int jugador);
-
-    /**
-     * Metodo que busca la mejor posicion para marcar  en el turno (unicamente por la maquina).
+     * This method returns the board in a strings
      * 
      * @return
      *     returns java.lang.String
@@ -112,21 +64,9 @@ public interface DWTicTacToePort {
     public String getBoardStr();
 
     /**
-     * Metodo que busca la mejor posicion para marcar  en el turno (unicamente por la maquina).
+     * This method check if the player wins.
      * 
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod(action = "urn:DW_TicTacToe#prueba")
-    @WebResult(name = "pruebaResult", targetNamespace = "")
-    @RequestWrapper(localName = "prueba", targetNamespace = "urn:DW_TicTacToe", className = "TicTacToe.Prueba")
-    @ResponseWrapper(localName = "pruebaResponse", targetNamespace = "urn:DW_TicTacToe", className = "TicTacToe.PruebaResponse")
-    public String prueba();
-
-    /**
-     * Verdadero si el jugador gano, falso si aun no ha ganado.
-     * 
-     * @param jugador
+     * @param player
      * @return
      *     returns boolean
      */
@@ -135,13 +75,13 @@ public interface DWTicTacToePort {
     @RequestWrapper(localName = "checkWin", targetNamespace = "urn:DW_TicTacToe", className = "TicTacToe.CheckWin")
     @ResponseWrapper(localName = "checkWinResponse", targetNamespace = "urn:DW_TicTacToe", className = "TicTacToe.CheckWinResponse")
     public boolean checkWin(
-        @WebParam(name = "jugador", targetNamespace = "")
-        int jugador);
+        @WebParam(name = "player", targetNamespace = "")
+        int player);
 
     /**
-     * Verdadero si esta lleno, falso si hay espacios.
+     * This method check if board is full.
      * 
-     * @param jugador
+     * @param player
      * @return
      *     returns boolean
      */
@@ -150,13 +90,13 @@ public interface DWTicTacToePort {
     @RequestWrapper(localName = "isFull", targetNamespace = "urn:DW_TicTacToe", className = "TicTacToe.IsFull")
     @ResponseWrapper(localName = "isFullResponse", targetNamespace = "urn:DW_TicTacToe", className = "TicTacToe.IsFullResponse")
     public boolean isFull(
-        @WebParam(name = "jugador", targetNamespace = "")
-        int jugador);
+        @WebParam(name = "player", targetNamespace = "")
+        int player);
 
     /**
-     * Metodo que busca la mejor posicion para marcar  en el turno (unicamente por la maquina).
+     * This method make the computer play a position random.
      * 
-     * @param jugador
+     * @param player
      * @return
      *     returns java.lang.String
      */
@@ -165,7 +105,31 @@ public interface DWTicTacToePort {
     @RequestWrapper(localName = "playComputerRand", targetNamespace = "urn:DW_TicTacToe", className = "TicTacToe.PlayComputerRand")
     @ResponseWrapper(localName = "playComputerRandResponse", targetNamespace = "urn:DW_TicTacToe", className = "TicTacToe.PlayComputerRandResponse")
     public String playComputerRand(
-        @WebParam(name = "jugador", targetNamespace = "")
-        int jugador);
+        @WebParam(name = "player", targetNamespace = "")
+        int player);
+
+    /**
+     * This method add to the ranking a player with the time
+     * 
+     * @param name
+     */
+    @WebMethod(action = "urn:DW_TicTacToe#addToRanking")
+    @Oneway
+    @RequestWrapper(localName = "addToRanking", targetNamespace = "urn:DW_TicTacToe", className = "TicTacToe.AddToRanking")
+    public void addToRanking(
+        @WebParam(name = "name", targetNamespace = "")
+        String name);
+
+    /**
+     * This method returns the ranking in a string
+     * 
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod(action = "urn:DW_TicTacToe#getRanking")
+    @WebResult(name = "getRankingResult", targetNamespace = "")
+    @RequestWrapper(localName = "getRanking", targetNamespace = "urn:DW_TicTacToe", className = "TicTacToe.GetRanking")
+    @ResponseWrapper(localName = "getRankingResponse", targetNamespace = "urn:DW_TicTacToe", className = "TicTacToe.GetRankingResponse")
+    public String getRanking();
 
 }

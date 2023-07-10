@@ -17,9 +17,9 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="fila" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
- *         &lt;element name="columna" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
- *         &lt;element name="jugador" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+ *         &lt;element name="row" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+ *         &lt;element name="column" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+ *         &lt;element name="player" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -30,63 +30,63 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "fila",
-    "columna",
-    "jugador"
+    "row",
+    "column",
+    "player"
 })
 @XmlRootElement(name = "tick")
 public class Tick {
 
-    protected int fila;
-    protected int columna;
-    protected int jugador;
+    protected int row;
+    protected int column;
+    protected int player;
 
     /**
-     * Obtiene el valor de la propiedad fila.
+     * Obtiene el valor de la propiedad row.
      * 
      */
-    public int getFila() {
-        return fila;
+    public int getRow() {
+        return row;
     }
 
     /**
-     * Define el valor de la propiedad fila.
+     * Define el valor de la propiedad row.
      * 
      */
-    public void setFila(int value) {
-        this.fila = value;
+    public void setRow(int value) {
+        this.row = value;
     }
 
     /**
-     * Obtiene el valor de la propiedad columna.
+     * Obtiene el valor de la propiedad column.
      * 
      */
-    public int getColumna() {
-        return columna;
+    public int getColumn() {
+        return column;
     }
 
     /**
-     * Define el valor de la propiedad columna.
+     * Define el valor de la propiedad column.
      * 
      */
-    public void setColumna(int value) {
-        this.columna = value;
+    public void setColumn(int value) {
+        this.column = value;
     }
 
     /**
-     * Obtiene el valor de la propiedad jugador.
+     * Obtiene el valor de la propiedad player.
      * 
      */
-    public int getJugador() {
-        return jugador;
+    public int getPlayer() {
+        return player;
     }
 
     /**
-     * Define el valor de la propiedad jugador.
+     * Define el valor de la propiedad player.
      * 
      */
-    public void setJugador(int value) {
-        this.jugador = value;
+    public void setPlayer(int value) {
+        this.player = value;
     }
 
 }

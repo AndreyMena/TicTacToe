@@ -30,67 +30,19 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link PlayAgain }
+     * 
+     */
+    public PlayAgain createPlayAgain() {
+        return new PlayAgain();
+    }
+
+    /**
      * Create an instance of {@link Tick }
      * 
      */
     public Tick createTick() {
         return new Tick();
-    }
-
-    /**
-     * Create an instance of {@link SearchWin }
-     * 
-     */
-    public SearchWin createSearchWin() {
-        return new SearchWin();
-    }
-
-    /**
-     * Create an instance of {@link SearchWinResponse }
-     * 
-     */
-    public SearchWinResponse createSearchWinResponse() {
-        return new SearchWinResponse();
-    }
-
-    /**
-     * Create an instance of {@link SearchBlock }
-     * 
-     */
-    public SearchBlock createSearchBlock() {
-        return new SearchBlock();
-    }
-
-    /**
-     * Create an instance of {@link SearchBlockResponse }
-     * 
-     */
-    public SearchBlockResponse createSearchBlockResponse() {
-        return new SearchBlockResponse();
-    }
-
-    /**
-     * Create an instance of {@link SearchTick }
-     * 
-     */
-    public SearchTick createSearchTick() {
-        return new SearchTick();
-    }
-
-    /**
-     * Create an instance of {@link SearchTickResponse }
-     * 
-     */
-    public SearchTickResponse createSearchTickResponse() {
-        return new SearchTickResponse();
-    }
-
-    /**
-     * Create an instance of {@link PlayComputer }
-     * 
-     */
-    public PlayComputer createPlayComputer() {
-        return new PlayComputer();
     }
 
     /**
@@ -107,22 +59,6 @@ public class ObjectFactory {
      */
     public GetBoardStrResponse createGetBoardStrResponse() {
         return new GetBoardStrResponse();
-    }
-
-    /**
-     * Create an instance of {@link Prueba }
-     * 
-     */
-    public Prueba createPrueba() {
-        return new Prueba();
-    }
-
-    /**
-     * Create an instance of {@link PruebaResponse }
-     * 
-     */
-    public PruebaResponse createPruebaResponse() {
-        return new PruebaResponse();
     }
 
     /**
@@ -171,6 +107,30 @@ public class ObjectFactory {
      */
     public PlayComputerRandResponse createPlayComputerRandResponse() {
         return new PlayComputerRandResponse();
+    }
+
+    /**
+     * Create an instance of {@link AddToRanking }
+     * 
+     */
+    public AddToRanking createAddToRanking() {
+        return new AddToRanking();
+    }
+
+    /**
+     * Create an instance of {@link GetRanking }
+     * 
+     */
+    public GetRanking createGetRanking() {
+        return new GetRanking();
+    }
+
+    /**
+     * Create an instance of {@link GetRankingResponse }
+     * 
+     */
+    public GetRankingResponse createGetRankingResponse() {
+        return new GetRankingResponse();
     }
 
 }

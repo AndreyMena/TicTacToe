@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="searchBlockResult" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -29,36 +29,36 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "searchBlockResult"
+    "name"
 })
-@XmlRootElement(name = "searchBlockResponse")
-public class SearchBlockResponse {
+@XmlRootElement(name = "addToRanking")
+public class AddToRanking {
 
     @XmlElement(required = true)
-    protected String searchBlockResult;
+    protected String name;
 
     /**
-     * Obtiene el valor de la propiedad searchBlockResult.
+     * Obtiene el valor de la propiedad name.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getSearchBlockResult() {
-        return searchBlockResult;
+    public String getName() {
+        return name;
     }
 
     /**
-     * Define el valor de la propiedad searchBlockResult.
+     * Define el valor de la propiedad name.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setSearchBlockResult(String value) {
-        this.searchBlockResult = value;
+    public void setName(String value) {
+        this.name = value;
     }
 
 }

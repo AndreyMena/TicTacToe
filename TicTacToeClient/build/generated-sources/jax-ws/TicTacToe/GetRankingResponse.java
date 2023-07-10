@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="pruebaResult" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="getRankingResult" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -29,36 +29,36 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "pruebaResult"
+    "getRankingResult"
 })
-@XmlRootElement(name = "pruebaResponse")
-public class PruebaResponse {
+@XmlRootElement(name = "getRankingResponse")
+public class GetRankingResponse {
 
     @XmlElement(required = true)
-    protected String pruebaResult;
+    protected String getRankingResult;
 
     /**
-     * Obtiene el valor de la propiedad pruebaResult.
+     * Obtiene el valor de la propiedad getRankingResult.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getPruebaResult() {
-        return pruebaResult;
+    public String getGetRankingResult() {
+        return getRankingResult;
     }
 
     /**
-     * Define el valor de la propiedad pruebaResult.
+     * Define el valor de la propiedad getRankingResult.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setPruebaResult(String value) {
-        this.pruebaResult = value;
+    public void setGetRankingResult(String value) {
+        this.getRankingResult = value;
     }
 
 }
